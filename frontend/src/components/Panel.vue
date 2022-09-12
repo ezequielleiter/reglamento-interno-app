@@ -5,9 +5,9 @@ import { ref, onMounted } from 'vue';
 import { useToast } from 'primevue/usetoast';
 import getReglamentoFind from '../helpers/getReglamentoFind';
 
-const props = defineProps(['_id', 'ejemplo_text']);
+const props = defineProps(['_id', 'ejemplo_text', 'reglamento']);
 const collapsed = ref(true);
-const reglamentoId = props.id;
+const reglamentoId = props.reglamento;
 const reglamentoType = ref('');
 const menu = ref(null);
 const items = ref([
@@ -65,7 +65,7 @@ const toggle = (event) => {
 onMounted(() => {
  const reglamento = async (id) => {
   const { data } = await getReglamentoFind.get(`?id=${id}`);
-  reglamentoType.value = data.find;
+  reglamentoType.value = data.find[0].tipo;
  };
  reglamento(reglamentoId);
 });
@@ -84,7 +84,7 @@ onMounted(() => {
    <Menu id="config_menu" ref="menu" :model="items" :popup="true" />
   </template>
   <p>{{ props.ejemplo_text }}</p>
-  <p>Reglamento:{{ reglamentoType }}</p>
+  <p>Reglamento: {{ reglamentoType }}</p>
  </Panel>
 </template>
 

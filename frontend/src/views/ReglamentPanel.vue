@@ -55,17 +55,16 @@ const closeConfirmationSend = async () => {
    optionLabel="tipo"
    style="width: 100%"
   />
- </div>
- <Dialog
-  header="Agragar reglamento"
-  v-model:visible="displayConfirmation"
-  :breakpoints="{ '960px': '75vw', '640px': '90vw' }"
-  :style="{ width: '350px' }"
-  :modal="true"
- >
-  <label for="username">Nombre del reglamento</label>
-  <InputText id="username" type="text" v-model="newReglamento" />
-  <template #footer>
+
+  <Dialog
+   header="Agragar reglamento"
+   v-model:visible="displayConfirmation"
+   :breakpoints="{ '960px': '75vw', '640px': '90vw' }"
+   :style="{ width: '350px' }"
+   :modal="true"
+  >
+   <label for="username">Nombre del reglamento</label>
+   <InputText id="username" type="text" v-model="newReglamento" />
    <Button
     label="Agregar"
     icon="pi pi-check"
@@ -73,8 +72,8 @@ const closeConfirmationSend = async () => {
     class="p-button-text"
     autofocus
    />
-  </template>
- </Dialog>
+  </Dialog>
+ </div>
 </template>
 
 <style lang="scss" scoped>

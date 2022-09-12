@@ -86,6 +86,7 @@ onMounted(() => {
    :key="item._id"
    :_id="item._id"
    :ejemplo_text="item.ejemplo_text"
+   :reglamento="item.reglamento"
   />
   <!-- <Panel
    :header="item.ejemplo_text.slice(0, 40)"
